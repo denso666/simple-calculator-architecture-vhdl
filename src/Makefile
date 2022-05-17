@@ -5,6 +5,7 @@ CC=ghdl
 TIME=100ns
 VCD=waves.vcd
 M=./modules
+BFF=buffers
 
 ########################
 # 		IEEE FLAGS
@@ -37,8 +38,11 @@ main: modules.o test_bench.o
 test_bench.o: test_bench.vhdl
 	${CC} -a ${FLAGS} test_bench.vhdl
 
-modules.o: ${M}/*.vhdl
+modules.o: buffers.o ${M}/*.vhdl
 	${CC} -a ${FLAGS} ${M}/*.vhdl
+
+buffers.o: ${M}/${BFF}/*.vhdl
+	${CC} -a ${M}/${BFF}/*.vhdl
 
 # Clean command
 clean:
