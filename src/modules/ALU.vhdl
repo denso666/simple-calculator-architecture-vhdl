@@ -6,24 +6,24 @@ use ieee.std_logic_unsigned.all;
 
 entity ALU is
 port (
-	A, B: 	in std_logic_vector(7 downto 0);
+	A, B: 	in std_logic_vector(15 downto 0);
 	SEL:  	in std_logic_vector(3 downto 0);
-	R:		out std_logic_vector(7 downto 0)
+	R:		out std_logic_vector(15 downto 0)
 );
 end entity ALU;
 
 architecture behavior of ALU is begin
 	
 	with SEL select
-		R <=A 		when x"0",
-			A + B 	when x"1",
-			A - B   when x"2",
-		    A * B 	when x"3",
+		R <=A 		when "0000",
+			A + B 	when "0001",
+			A - B   when "0010",
+		    A * B 	when "0011",
 		    --A / B  	when x"4",
-		    A * A 	when x"6",
-		    A and B when x"7",
-		    A or B 	when x"8",
-		    not B 	when x"9",
+		    --A * A 	when "0101",
+		    --A and B when "0110",
+		    --A or B 	when "0111",
+		    --not B 	when "1000",
 		    (others => 'X')	when others;
 
 end architecture behavior;
