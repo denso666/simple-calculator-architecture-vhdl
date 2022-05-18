@@ -13,7 +13,22 @@ end entity MEM_REG;
 
 architecture behavior of MEM_REG is
 	type mem is array(0 to 7) of std_logic_vector(15 downto 0);
-	signal reg_block: mem;
+
+	function init return mem is
+		variable temp: mem := (others=>(others=>'0'));
+	begin
+    	temp(0) := x"0000";
+		temp(1) := x"0001";
+		temp(2) := x"0002";
+		temp(3) := x"0003";
+		temp(4) := x"0004";
+		temp(5) := x"0005";
+		temp(6) := x"0006";
+		temp(7) := x"0007";
+		return temp;
+	end function;
+
+	signal reg_block: mem := init;
 begin
 	
 	process( AR1, AR2, WE ) begin

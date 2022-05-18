@@ -33,7 +33,7 @@ all: main
 main: modules.o test_bench.o
 	${CC} -e ${FLAGS} test_bench 
 	${CC} -r ${FLAGS} test_bench --stop-time=${TIME} --vcd=${VCD}
-	${VIEW}
+	gtkwave ${VCD}
 
 test_bench.o: test_bench.vhdl
 	${CC} -a ${FLAGS} test_bench.vhdl

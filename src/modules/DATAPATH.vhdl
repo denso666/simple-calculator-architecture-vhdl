@@ -1,10 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity DATAPATH is
-port ( CLK: in std_logic );
-end entity;
-
+entity DATAPATH is port ( CLK: in std_logic ); end entity;
 architecture behavior of DATAPATH is
 ----------------------------------------
 --				COMPONENTS

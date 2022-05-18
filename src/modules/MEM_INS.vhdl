@@ -11,11 +11,21 @@ end entity MEM_INS;
 
 architecture behavior of MEM_INS is
 	type mem is array(0 to 15) of std_logic_vector(15 downto 0);
-	signal mem_block: mem;
+
+	function init return mem is
+		variable temp: mem;
+	begin
+    	temp(0) := x"0000";
+		temp(1) := x"1020";
+		temp(2) := x"2260";
+		temp(3) := x"3340";
+		temp(4) := x"5700";
+		return temp;
+	end function;
+
+	signal mem_block: mem := init;
 begin
 	
-	process( ADDR ) begin
-		DOUT <= mem_block( to_integer( unsigned( ADDR ) ) );
-	end process;
-
+	DOUT <= mem_block( to_integer( unsigned( ADDR ) ) );
+	
 end architecture behavior;
