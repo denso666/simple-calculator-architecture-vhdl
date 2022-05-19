@@ -12,7 +12,7 @@ begin
 	clk <= not clk after 25 ns;
 
 	process begin
-		wait for 200 ns;
+		wait for 2000 ns;
 	end process;
 
 end architecture;

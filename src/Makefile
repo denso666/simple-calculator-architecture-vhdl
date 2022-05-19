@@ -2,8 +2,8 @@
 #		VARIABLES
 ########################
 CC=ghdl
-TIME=100ns
-VCD=waves.vcd
+TIME=2000ns
+VCD=INM.vcd
 M=./modules
 BFF=buffers
 

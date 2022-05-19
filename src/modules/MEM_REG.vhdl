@@ -14,6 +14,7 @@ end entity MEM_REG;
 architecture behavior of MEM_REG is
 	type mem is array(0 to 7) of std_logic_vector(15 downto 0);
 
+	--	FUNCTION TO LOAD INITIAL REGISTERS
 	function init return mem is
 		variable temp: mem := (others=>(others=>'0'));
 	begin
